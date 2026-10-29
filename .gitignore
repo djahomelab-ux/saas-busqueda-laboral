@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env
+backend/tests/datos/resultado-evaluacion.json
+*.log
