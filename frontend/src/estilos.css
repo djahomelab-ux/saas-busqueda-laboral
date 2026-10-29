@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; background: #f4f6fa; color: #1d2433; }
+.marco { display: flex; min-height: 100vh; }
+.menu { width: 210px; background: #16233f; display: flex; flex-direction: column; padding: 16px 10px; gap: 4px; }
+.menu .marca { color: #fff; margin: 0 8px 16px; }
+.menu button { background: none; border: 0; color: #c9d3e6; text-align: left; padding: 9px 10px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+.menu button.activo, .menu button:hover { background: #24365f; color: #fff; }
+.menu .salir { margin-top: auto; }
+.contenido { flex: 1; padding: 28px; max-width: 1000px; }
+h1 { font-size: 22px; margin: 0 0 18px; }
+.tarjeta { background: #fff; border: 1px solid #dde3ee; border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+label { display: block; font-size: 13px; margin: 10px 0 4px; color: #4a5468; }
+input, select, textarea { width: 100%; padding: 8px 10px; border: 1px solid #c8d0de; border-radius: 6px; font: inherit; }
+textarea { min-height: 80px; }
+button.principal { background: #0f9d8a; color: #fff; border: 0; padding: 9px 16px; border-radius: 6px; cursor: pointer; margin-top: 12px; }
+button.principal:disabled { opacity: .6; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e6eaf2; }
+.error { color: #b3261e; font-size: 14px; }
+.fila { display: flex; gap: 12px; }
+.fila > * { flex: 1; }
+.porcentaje { font-size: 40px; font-weight: 700; color: #0f9d8a; }
+.estado-evidenciado { color: #1b7a43; }
+.estado-poco_evidenciado { color: #a86200; }
+.estado-no_evidenciado { color: #b3261e; }
+.acceso { max-width: 380px; margin: 10vh auto; }
+.nota { font-size: 12px; color: #6b7487; }
