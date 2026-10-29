@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { api } from '../api.js';
 
 const VACIO = { perfil: '', experiencia: '', formacion: '', habilidades: '' };
+const SECCIONES = { datos_personales: 'Datos personales', perfil: 'Perfil', experiencia: 'Experiencia', formacion: 'Formación', habilidades: 'Habilidades' };
 
 export default function Curriculum() {
   const [lista, setLista] = useState([]);
@@ -9,6 +10,10 @@ export default function Curriculum() {
   const [sel, setSel] = useState(null);
   const [contenido, setContenido] = useState(VACIO);
   const [mensaje, setMensaje] = useState('');
+  const [idVersion, setIdVersion] = useState('');
+  const [puesto, setPuesto] = useState('');
+  const [analisis, setAnalisis] = useState(null);
+  const [analizando, setAnalizando] = useState(false);
 
   const cargar = () => api('/curriculums').then(setLista).catch((e) => setMensaje(e.message));
   useEffect(() => { cargar(); }, []);
@@ -25,6 +30,15 @@ export default function Curriculum() {
       setMensaje(`Versión ${v.numero} guardada (id ${v.id_version}). Completitud: ${v.completitud} %`);
       cargar();
     } catch (err) { setMensaje(err.message); }
+  }
+
+  async function analizar(e) {
+    e.preventDefault();
+    setAnalizando(true); setMensaje('');
+    try {
+      setAnalisis(await api('/asistente/analisis-cv', { metodo: 'POST', cuerpo: { id_version: Number(idVersion), puesto: puesto || undefined } }));
+    } catch (err) { setAnalisis(null); setMensaje(err.message); }
+    setAnalizando(false);
   }
 
   return (
@@ -57,6 +71,25 @@ export default function Curriculum() {
           ))}
           <button className="principal">Guardar versión</button>
         </form>
+      )}
+      <form className="tarjeta" onSubmit={analizar}>
+        <h3>Análisis del currículum con el asistente</h3>
+        <div className="fila">
+          <div><label>Id de la versión</label><input value={idVersion} onChange={(e) => setIdVersion(e.target.value)} placeholder="Ej.: 1" required /></div>
+          <div><label>Puesto objetivo (opcional)</label><input value={puesto} onChange={(e) => setPuesto(e.target.value)} placeholder="Ej.: Desarrollador frontend junior" /></div>
+        </div>
+        <button className="principal" disabled={!idVersion || analizando}>{analizando ? 'Analizando…' : 'Analizar currículum'}</button>
+      </form>
+      {analisis && (
+        <div className="tarjeta">
+          <p className="nota">Fuente: {analisis.fuente.curriculum} v{analisis.fuente.version}</p>
+          <table>
+            <thead><tr><th>Sección</th><th>Observación</th><th>Sugerencia</th></tr></thead>
+            <tbody>{analisis.observaciones.map((o, i) => (
+              <tr key={i}><td>{SECCIONES[o.seccion]}</td><td>{o.problema}</td><td>{o.sugerencia}</td></tr>
+            ))}</tbody>
+          </table>
+        </div>
       )}
     </>
   );

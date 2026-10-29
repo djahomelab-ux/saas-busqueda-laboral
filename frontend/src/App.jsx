@@ -5,6 +5,7 @@ import Perfil from './pages/Perfil.jsx';
 import Curriculum from './pages/Curriculum.jsx';
 import Ofertas from './pages/Ofertas.jsx';
 import Postulaciones from './pages/Postulaciones.jsx';
+import Entrevistas from './pages/Entrevistas.jsx';
 import Asistente from './pages/Asistente.jsx';
 import Suscripcion from './pages/Suscripcion.jsx';
 
@@ -13,6 +14,7 @@ const MODULOS = [
   ['curriculum', 'Currículum', Curriculum],
   ['ofertas', 'Ofertas', Ofertas],
   ['postulaciones', 'Postulaciones', Postulaciones],
+  ['entrevistas', 'Entrevistas', Entrevistas],
   ['asistente', 'Asistente', Asistente],
   ['suscripcion', 'Suscripción', Suscripcion]
 ];
