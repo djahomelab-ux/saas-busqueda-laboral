@@ -2,7 +2,7 @@
 
 Proyecto Integrador – Inteligencia Artificial – UPSJB. Plataforma web que centraliza la gestión del
 currículum, las ofertas, las postulaciones y la preparación de entrevistas, con un asistente
-contextual que combina reglas en **SWI-Prolog** con un **modelo de lenguaje** consumido por API.
+contextual que combina reglas en **SWI-Prolog** con un **modelo de lenguaje** consumido por API..
 
 ## Estructura
 
