@@ -1,0 +1,37 @@
+{
+  "_nota": "Ejemplo de formato con 2 casos. Completar con los 20 pares CV-oferta y las 30 respuestas de entrevista etiquetadas por los evaluadores.",
+  "pares": [
+    {
+      "id": "P01",
+      "puesto": "Desarrollador frontend junior",
+      "texto_cv": "Estudiante de Ingeniería de Sistemas. Desarrollé la web de una tienda con HTML, CSS y JavaScript. Curso introductorio de React (en progreso).",
+      "requisitos": [
+        { "nombre": "html", "tipo": "obligatorio" },
+        { "nombre": "css", "tipo": "obligatorio" },
+        { "nombre": "javascript", "tipo": "obligatorio" },
+        { "nombre": "react", "tipo": "obligatorio" },
+        { "nombre": "git", "tipo": "deseable" }
+      ],
+      "evidenciados_evaluador": ["html", "css", "javascript"]
+    },
+    {
+      "id": "P02",
+      "puesto": "Analista de datos junior",
+      "texto_cv": "Bachiller en Estadística. Automaticé reportes con Python (pandas) y consultas SQL sobre PostgreSQL durante mis prácticas.",
+      "requisitos": [
+        { "nombre": "python", "tipo": "obligatorio" },
+        { "nombre": "sql", "tipo": "obligatorio" },
+        { "nombre": "power_bi", "tipo": "deseable" }
+      ],
+      "evidenciados_evaluador": ["python", "sql"]
+    }
+  ],
+  "entrevistas": [
+    {
+      "pregunta": "¿Cómo manejarías el estado global en una aplicación React?",
+      "criterio_clave": "Menciona Context o una librería de estado y cuándo usarla",
+      "respuesta": "Usaría Context para datos compartidos como la sesión, y props para lo local.",
+      "puntajes_evaluador": { "claridad": 4, "comunicacion": 4, "relevancia": 4, "tecnico": 3 }
+    }
+  ]
+}
