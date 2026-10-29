@@ -25,11 +25,22 @@ database/   schema.sql (modelo físico) y seed.sql (datos de demostración)
 
 ## Puesta en marcha
 
-1. **Base de datos**
+### Opción rápida en Windows
+
+Con Node.js, SWI-Prolog y MySQL encendido (por ejemplo, desde XAMPP), basta con hacer doble clic en
+`iniciar.bat`. El archivo crea `backend/.env` si no existe, instala las dependencias, crea la base de
+datos si hace falta y abre Prolog, backend y frontend en tres ventanas. Si MySQL tiene contraseña,
+escríbela en `DB_PASSWORD` de `backend/.env` antes de ejecutarlo.
+
+### Paso a paso
+
+1. **Base de datos** (con los datos de conexión de `backend/.env`)
 
    ```bash
-   mysql -u root -p < database/schema.sql
-   mysql -u root -p < database/seed.sql
+   cd backend
+   npm install
+   npm run crear-bd                 # la crea si no existe
+   npm run crear-bd -- --reiniciar  # la borra y la vuelve a crear
    ```
 
 2. **Servicio Prolog** (puerto 5000)
